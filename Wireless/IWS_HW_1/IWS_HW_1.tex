@@ -1,0 +1,172 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage{pgf}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd}
+\usepackage{fullpage}
+\usepackage{lastpage}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{xcolor}
+\usepackage[margin=2cm]{geometry}
+\geometry{
+ a4paper,
+ total={210mm,297mm},
+ left=20mm,
+ right=20mm,
+ top=20mm,
+ bottom=20mm,
+ }
+\setlength{\parindent}{0.0in}
+\setlength{\parskip}{0.05in}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Edit these as appropriate
+\newcommand\course{CS6097}
+\newcommand\coursename{Wireless Net}
+\newcommand\semester{Fall 2014}     % <-- current semester
+\newcommand\hwnum{1}                  % <-- homework number
+\newcommand\yourname{Chris Park (Kyungmook)} % <-- your name
+\newcommand\login{M07068980}           % <-- your NetID
+\newcommand\hwdate{Due: Sep 10th 2014 6:00PM} % <-- HW due date
+\newcommand\problems{P2.2, P2.3, P2.4, P3.2, P3.4, P3.7}
+\newenvironment{answer}[1]{
+  \subsubsection*{Problem #1}
+}
+
+
+\pagestyle{fancyplain}
+%\setlength{\headheight}{72pt}
+%\chead{\textbf{\Large{Homework \hwnum}}}
+%\rhead{\yourname\ \login\\\course\coursename\ --- \semester\\\hwdate\\\problems\\}
+%\headsep 50pt
+
+
+\begin{document}
+
+\begin{flushright}
+\yourname\ \login\\\course\coursename\ --- \semester\\\hwdate\\\problems\\
+\end{flushright}
+
+\begin{center}
+\textbf{\Large{Homework \hwnum}}
+\end{center}
+
+\begin{answer}{1}
+
+\textbf{{P2.2: } A random digit generator on a computer is activated three times consecutively to
+simulate a random three-digit number.}
+
+\begin{enumerate}[(a)]
+\item
+\textbf{How many random three-digit numbers are possible?\\}
+If we include 0 as the first digit,\\
+11 * 11 * 11 = 1210\\
+1210 numbers are possible.
+
+\item
+\textbf{How many numbers will begin with the digit 2?\\}
+First digit is fixed; therefore, 1 * 11 * 11 = 121\\
+121 numbers will begin with the digit 2.
+
+\item
+\textbf{How many numbers will end with the digit 9?\\}
+Last digit is fixed; therefore, 11 * 11 * 1 = 121\\
+121 numbers will end with the digit 9.
+
+\item
+\textbf{How many numbers will begin with the digit 2 and end with the digit 9?\\}
+The first and the last digits are fixed; therefore, 1 * 11 * 1 = 11\\
+11 numbers will begin with the digit 2 and end with the digit 9.
+
+\item
+\textbf{What is the probability that a randomly formed number ends with 9 given that
+it begins with a 2?\\}
+Given the number begins with the digit 2, 121 numbers will be formed.\\
+Out of the 121 numbers, 11 numbers will end with the digit 9.\\
+Therefore, the probability that a randomly formed number ends with 9 given that it begins with a 2 is 11/121 ~= 0.09
+
+\end{enumerate}
+
+\end{answer}
+
+\begin{answer}{2}
+
+\textbf{{P2.3: } A snapshot of the traffic pattern in a cell with 10 users of a wireless system is given
+as follows:}
+
+\begin{table}[htbp]
+   \centering
+   \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}\hline % Column formatting
+         User Number&1&2&3&4&5&6&7&8&9&10\\\hline
+      Call Initiation Time&0&2&0&3&1&7&4&2&5&1\\\hline
+      Call Holding Time&5&7&4&8&6&2&1&4&3&2\\\hline
+   \end{tabular}
+   \label{tab:booktabs}
+\end{table}
+
+\begin{enumerate}[(a)]
+\item
+\textbf{Assuming the call setup/connection and call disconnection time to be zero, what
+is the average duration of a call?}
+
+Let\\
+$t_{init}$ = call initiation time\\
+$t_{hold}$ = call holding time\\
+$n_{users}$ = number of users\\
+T = average duration of a call\\
+
+T = $\frac{\sum(t_{init} + t_{hold})}{n_{users}}$ = \pgfmathparse{(2+3+1+7+4+2+5+1+5+7+4+8+6+2+1+4+3+2)/10}\pgfmathresult\\
+
+\item
+What is the minimum number of channels required to support this sequence of
+calls?
+\item
+Show the allocation of channels to different users for part (b) of this problem.
+\item
+Given the number of channels obtained in part (b), for what fraction of time
+are the channels utilized?
+\end{enumerate}
+
+\end{answer}
+
+\begin{answer}{3}
+
+{P2.4: } A department survey found that four of ten graduate students use CDMA cell
+phone service. If three graduate students are selected at random, what is the
+probability that the three graduate students use CDMA cell phones?
+
+\end{answer}
+
+\begin{answer}{4}
+
+{P3.2: } Consider an antenna transmitting a power of 5W at 900 MHz. Calculate the
+received power at a distance of 2km if propagation is taking place in free space.
+ 
+\end{answer}
+
+\begin{answer}{5}
+
+{P3.4: } The transmission power is 40W, under a free-space propagation model,
+
+\begin{enumerate}[(a)]
+\item
+What is the transmission power in unit of dBm?
+\item
+The receiver is in a distance of 1000 m; what is the received power, assuming
+that the carrier frequency fc = 900 MHz and Gt = Gr = 0 dB?
+\item
+Express the free space path loss in dB.
+\end{enumerate}
+
+
+\end{answer}
+
+\begin{answer}{6}
+
+{P3.7: } Consider an antenna transmitting at 900 MHz. The receiver is traveling at a speed
+of 40 km/h. Calculate its Doppler shift.
+
+\end{answer}
+
+\end{document}
