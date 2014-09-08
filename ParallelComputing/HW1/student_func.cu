@@ -38,6 +38,14 @@ void rgba_to_greyscale(const uchar4* const rgbaImage,
                        unsigned char* const greyImage,
                        int numRows, int numCols)
 {
+	int absolute_image_position_x = (blockIdx.x * blockDim.x) + threadIdx.x;
+	int absolute_image_position_y = (blockIdx.y * blockDim.y) + threadIdx.y;
+
+	if (absolute_image_position_x >= numCols || absolute_image_position_y >= numRows) return;
+
+	uchar4 rgba = rgbaImage[absolute_image_position_x + absolute_image_position_y];
+	float channelSum = .299f * rgba.x + .587f * rgba.y + .114f * rgba.z;
+	greyImage[absolute_image_position_x + absolute_image_position_y] = channelSum;
   //TODO
   //Fill in the kernel to convert from color to greyscale
   //the mapping from components of a uchar4 to RGBA is:
@@ -57,8 +65,8 @@ void your_rgba_to_greyscale(const uchar4 * const h_rgbaImage, uchar4 * const d_r
 {
   //You must fill in the correct sizes for the blockSize and gridSize
   //currently only one block with one thread is being launched
-  const dim3 blockSize(1, 1, 1);  //TODO
-  const dim3 gridSize( 1, 1, 1);  //TODO
+  const dim3 blockSize(22, 16, 1);  //TODO
+  const dim3 gridSize( numCols, numRows, 1);  //TODO
   rgba_to_greyscale<<<gridSize, blockSize>>>(d_rgbaImage, d_greyImage, numRows, numCols);
   
   cudaDeviceSynchronize(); checkCudaErrors(cudaGetLastError());
