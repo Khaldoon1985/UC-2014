@@ -1,0 +1,124 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage{pgf}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd}
+\usepackage{fullpage}
+\usepackage{lastpage}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{xcolor}
+\usepackage[margin=3cm]{geometry}
+\setlength{\parindent}{0.0in}
+\setlength{\parskip}{0.05in}
+
+% Edit these as appropriate
+\newcommand\course{20CS6037}
+\newcommand\semester{Fall 2014}     % <-- current semester
+\newcommand\hwnum{1}                  % <-- homework number
+\newcommand\yourname{FirstName LastName } % <-- your name
+\newcommand\login{Mnumber}           % <-- your NetID
+\newcommand\hwdate{Due: Enter Due date}           % <-- HW due date
+
+\newenvironment{answer}[1]{
+  \subsubsection*{Problem #1}
+}
+
+
+\pagestyle{fancyplain}
+\headheight 35pt
+\lhead{\yourname\ \login\\\course\ --- \semester}
+\chead{\textbf{\Large Homework \hwnum}}
+\rhead{\hwdate}
+\headsep 10pt
+
+\begin{document}
+
+\noindent \emph{Homework Notes:} Add information here on your study group, number of hours you spent on the homework, and other relevant information.
+
+\begin{answer}{1}
+
+You can write aligned equations as follows:
+\begin{eqnarray*}
+a &\sim& p(a)\\
+b &\sim& p(b).
+\end{eqnarray*}
+
+\textbf{(7 points)} Pairwise independence does not imply mutual independence.  Two random variables, $X_i$, i=1,2 are independent if\\
+P($X_i$ $|$ $X_j$) = P($X_i$), for i,j=1,2, i $\neq$ j\\
+and therefore\\
+
+P($X_i$, $X_j$) = P($X_j$)\\ P($X_i$ $|$ $X_j$) = P($X_i$)P($X_j$)\\
+
+Now, given n random variables, we say that there are mutually independent if\\
+P($X_i$| $X_S$) = P($X_i$) for all subsets S of \{1, 2, $\cdots$ , n\}which do not contain i, and therefore\\ P($X_1$,  $\cdots$ , $X_n$) = xP($X_1$) $\cdots$ xP($X_n$)\\
+
+
+You can write inline equations: $a \sim p(b)$, or one line equations:
+\[
+a \sim p(a).
+\]
+
+\begin{enumerate}[(1)]
+\item
+\textbf{Show that pairwise independence between all pairs of variables ($X_i$, $X_j$), does NOT imply mutual independence. Note: it is enough to give an example.}
+
+SUPPOSE A BOX CONTAINS 4 TICKETS LABELLED BY
+331	323	233	333
+LET US CHOOSE ONE TICKET AT RANDOM, AND CONSIDER THE RANDOM EVENTS
+A1={1 OCCURS AT THE FIRST PLACE}
+A2={1 OCCURS AT THE SECOND PLACE}
+A3={1 OCCURS AT THE THIRD PLACE}
+P(A1)=1/2	P(A2)=1/2	P(A3)=1/2
+
+A1A2={112}	A1A3={121}	A2A3={211}
+P(A1A2)=P(A1A3)=P(A2A3)=1/4.
+So we conclude that the three events A1, A2, A3 are pairwise independent.
+However
+A1A2A3=f
+P(A1A2A3)=0¹P(A1)P(A2)P(A3)=(1/2)3
+
+
+\item
+\textbf{Show mutual independence implies pairwise independence.}
+
+For example, for four events A, B, C, D to be mutually independent, we must have
+ 	P(A∩B∩C∩D) = P(A)P(B)P(C)P(D),
+P(A∩B∩C) = P(A)P(B)P(C),
+P(A∩B∩D) = P(A)P(B)P(D),
+P(A∩C∩D) = P(A)P(C)P(D),
+P(B∩C∩D) = P(B)P(C)P(D), 
+P(A∩B) = P(A)P(B), P(A∩C) = P(A)P(C), P(A∩D) = P(A)P(D),
+P(B∩C) = P(B)P(C), P(B∩D) = P(B)P(D), P(C∩D) = P(C)P(D).
+
+\end{enumerate}
+
+\end{answer}
+
+\begin{answer}{2} 
+\textbf{(8 points)} Let X and Y be two discrete random variables which are identically distributed but not necessarily independent.\\
+Define\\
+R = 1 – H(Y$|$X) / H(X)
+
+\begin{enumerate}[(a)]
+\item
+\textbf{Show that R = I(X,Y) / H(X)}
+
+R = 1 - H(Y|X)/H(X) = ( H(X)-H(Y|X) )/ H(X)
+I(X,Y) / H(X) = 1 - H(X|Y) / H(X)
+%Identically distributed therefore
+H(Y|X) = H(X|Y)
+H(X) = H(Y|X)
+
+\item
+\textbf{Show that 0 $<=$ R $<=$ 1}
+\item
+\textbf{When is R = 0?}
+\item
+\textbf{When is R = 1?}
+\end{enumerate}
+
+
+\end{answer}
+
+
+\end{document}
