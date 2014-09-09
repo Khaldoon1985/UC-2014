@@ -61,30 +61,30 @@ simulate a random three-digit number.}
 \item
 \textbf{How many random three-digit numbers are possible?\\}
 If we include 0 as the first digit,\\
-11 * 11 * 11 = 1210\\
-1210 numbers are possible.
+10 * 10 * 10 = \pgfmathparse{int(10*10*10)}\pgfmathresult\\
+\pgfmathparse{int(10*10*10)}\pgfmathresult numbers are possible.
 
 \item
 \textbf{How many numbers will begin with the digit 2?\\}
-First digit is fixed; therefore, 1 * 11 * 11 = 121\\
-121 numbers will begin with the digit 2.
+First digit is fixed; therefore, 1 * 10 * 10 = \pgfmathparse{int(1*10*10)}\pgfmathresult\\
+\pgfmathparse{int(1*10*10)}\pgfmathresult\\ numbers will begin with the digit 2.
 
 \item
 \textbf{How many numbers will end with the digit 9?\\}
-Last digit is fixed; therefore, 11 * 11 * 1 = 121\\
-121 numbers will end with the digit 9.
+Last digit is fixed; therefore, 10 * 10 * 1 = \pgfmathparse{int(10*10*1)}\pgfmathresult\\
+\pgfmathparse{int(10*10*1)}\pgfmathresult\\ numbers will end with the digit 9.
 
 \item
 \textbf{How many numbers will begin with the digit 2 and end with the digit 9?\\}
-The first and the last digits are fixed; therefore, 1 * 11 * 1 = 11\\
-11 numbers will begin with the digit 2 and end with the digit 9.
+The first and the last digits are fixed; therefore, 1 * 10 * 1 = \pgfmathparse{int(1*10*1)}\pgfmathresult\\
+\pgfmathparse{int(1*10*1)}\pgfmathresult\\ numbers will begin with the digit 2 and end with the digit 9.
 
 \item
 \textbf{What is the probability that a randomly formed number ends with 9 given that
 it begins with a 2?\\}
-Given the number begins with the digit 2, 121 numbers will be formed.\\
-Out of the 121 numbers, 11 numbers will end with the digit 9.\\
-Therefore, the probability that a randomly formed number ends with 9 given that it begins with a 2 is 11/121 ~= 0.09
+Given the number begins with the digit 2, 100 numbers will be formed.\\
+Out of the 100 numbers, 10 numbers will end with the digit 9.\\
+Therefore, the probability that a randomly formed number ends with 9 given that it begins with a 2 is 10/100 ~= \pgfmathparse{round(10/100)}\pgfmathresult\\
 
 \end{enumerate}
 
@@ -114,13 +114,26 @@ Let\\
 $t_{init}$ = call initiation time\\
 $t_{hold}$ = call holding time\\
 $n_{users}$ = number of users\\
-T = average duration of a call\\
+$\lambda$ = arrival rate\\
+$\mu$ = service rate\\
 
-T = $\frac{\sum(t_{init} + t_{hold})}{n_{users}}$ = \pgfmathparse{(2+3+1+7+4+2+5+1+5+7+4+8+6+2+1+4+3+2)/10}\pgfmathresult\\
+$\lambda$ = $\frac{\sum{CallInitiationTime}}{NumberOfUsers}$ = \pgfmathparse{(2+3+1+7+4+2+5+1)/10}\pgfmathresult\\
+
+$\mu$ = $\frac{\sum{CallHoldingTime}}{NumberOfUsers}$ = \pgfmathparse{(5+7+4+8+6+2+1+4+3+2)/10}\pgfmathresult\\
+
+$W_s$ = Average dwell time\\
+
+$W_s$ = $\frac{1}{\mu-\lambda}$ = \pgfmathparse{1/((5+7+4+8+6+2+1+4+3+2)/10-(2+3+1+7+4+2+5+1)/10)}\pgfmathresult\\
+
+
 
 \item
-What is the minimum number of channels required to support this sequence of
-calls?
+\textbf{What is the minimum number of channels required to support this sequence of
+calls?}
+$L_s$ = Average number of customers who are waiting for service\\
+$L_s$ = \pgfmathparse{(2+3+1+7+4+2+5+1)/10/((5+7+4+8+6+2+1+4+3+2)/10-(2+3+1+7+4+2+5+1)/10)}\pgfmathresult\\
+$\therefore$ We need at minimum two channels to support this sequence of calls.\\
+
 \item
 Show the allocation of channels to different users for part (b) of this problem.
 \item
