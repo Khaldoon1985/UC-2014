@@ -62,33 +62,45 @@ a \sim p(a).
 \item
 \textbf{Show that pairwise independence between all pairs of variables ($X_i$, $X_j$), does NOT imply mutual independence. Note: it is enough to give an example.}
 
-SUPPOSE A BOX CONTAINS 4 TICKETS LABELLED BY
-331	323	233	333
-LET US CHOOSE ONE TICKET AT RANDOM, AND CONSIDER THE RANDOM EVENTS
-A1={1 OCCURS AT THE FIRST PLACE}
-A2={1 OCCURS AT THE SECOND PLACE}
-A3={1 OCCURS AT THE THIRD PLACE}
-P(A1)=1/2	P(A2)=1/2	P(A3)=1/2
+Here is an example obtained from:\\
+http://mnstats.morris.umn.edu/introstat/stat2611/independence.html\\
 
-A1A2={112}	A1A3={121}	A2A3={211}
-P(A1A2)=P(A1A3)=P(A2A3)=1/4.
-So we conclude that the three events A1, A2, A3 are pairwise independent.
-However
-A1A2A3=f
-P(A1A2A3)=0¹P(A1)P(A2)P(A3)=(1/2)3
+SUPPOSE A BOX CONTAINS 4 TICKETS LABELLED BY\\
+331	323	233	333\\
+
+LET US CHOOSE ONE TICKET AT RANDOM, AND CONSIDER THE RANDOM EVENTS\\
+A1={1 OCCURS AT THE FIRST PLACE}\\
+A2={1 OCCURS AT THE SECOND PLACE}\\
+A3={1 OCCURS AT THE THIRD PLACE}\\
+P(A1)=1/2	P(A2)=1/2	P(A3)=1/2\\
+
+A1A2={112}	A1A3={121}	A2A3={211}\\
+P(A1A2)=P(A1A3)=P(A2A3)=1/4.\\
+So we conclude that the three events A1, A2, A3 are pairwise independent.\\
+
+However\\
+
+A1A2A3=f\\
+P(A1A2A3)=0\\
+P(A1)P(A2)P(A3)=$(1/2)^3$\\
+
+$\therefore$ P(A1A2A3) $\neq$ P(A1)P(A2)P(A3)\\
 
 
 \item
 \textbf{Show mutual independence implies pairwise independence.}
 
-For example, for four events A, B, C, D to be mutually independent, we must have
- 	P(A∩B∩C∩D) = P(A)P(B)P(C)P(D),
-P(A∩B∩C) = P(A)P(B)P(C),
-P(A∩B∩D) = P(A)P(B)P(D),
-P(A∩C∩D) = P(A)P(C)P(D),
-P(B∩C∩D) = P(B)P(C)P(D), 
-P(A∩B) = P(A)P(B), P(A∩C) = P(A)P(C), P(A∩D) = P(A)P(D),
-P(B∩C) = P(B)P(C), P(B∩D) = P(B)P(D), P(C∩D) = P(C)P(D).
+For four events A, B, C, D to be mutually independent, by definition:\\
+
+P(A∩B∩C∩D) = P(A)P(B)P(C)P(D),\\
+P(A∩B∩C) = P(A)P(B)P(C),\\
+P(A∩B∩D) = P(A)P(B)P(D),\\
+P(A∩C∩D) = P(A)P(C)P(D),\\
+P(B∩C∩D) = P(B)P(C)P(D),\\
+P(A∩B) = P(A)P(B), P(A∩C) = P(A)P(C), P(A∩D) = P(A)P(D),\\
+P(B∩C) = P(B)P(C), P(B∩D) = P(B)P(D), P(C∩D) = P(C)P(D).\\
+
+Last two conditions must satisfy in order for these events to be pairwise independent.
 
 \end{enumerate}
 
@@ -101,20 +113,36 @@ R = 1 – H(Y$|$X) / H(X)
 
 \begin{enumerate}[(a)]
 \item
-\textbf{Show that R = I(X,Y) / H(X)}
+\textbf{Show that R = I(X,Y) / H(X)}\\
 
-R = 1 - H(Y|X)/H(X) = ( H(X)-H(Y|X) )/ H(X)
-I(X,Y) / H(X) = 1 - H(X|Y) / H(X)
+R = 1 - H(Y$|$X)/H(X) = ( H(X)-H(Y$|$X) )/ H(X)\\
+I(X,Y) / H(X) = 1 - H(X$|$Y) / H(X)\\
 %Identically distributed therefore
-H(Y|X) = H(X|Y)
-H(X) = H(Y|X)
+Because X and Y are identically distributed,\\
+H(Y$|$X) = H(X$|$Y)
+R = 1 - H(Y$|$X)/H(X)\\
+= ( H(X)-H(Y$|$X) ) / H(X)\\
+= ( H(X)-H(X$|$Y) ) / H(X)\\
+= I(X,Y) / H(X)\\
+
 
 \item
-\textbf{Show that 0 $<=$ R $<=$ 1}
+\textbf{Show that 0 $<=$ R $<=$ 1}\\
+R = 1 - H(X$|$Y)/H(X)\\
+0 $<=$ H(X$|$Y) $<=$ H(X)\\
+$\therefore$ 0 $<=$ H(X$|$Y)/H(X) $<=$ 1
+0 $<=$ 1 - H(X$|$Y)/H(X) $<=$ 1\\
+0 $<=$ R $<=$ 1\\
+
 \item
-\textbf{When is R = 0?}
+\textbf{When is R = 0?}\\
+R = 0 iff I(X,Y) = 0\\
+X and Y are independent\\
+
 \item
-\textbf{When is R = 1?}
+\textbf{When is R = 1?}\\
+R = 1 iff H(X$|$Y) = 0\\
+X is a function of Y\\
 \end{enumerate}
 
 

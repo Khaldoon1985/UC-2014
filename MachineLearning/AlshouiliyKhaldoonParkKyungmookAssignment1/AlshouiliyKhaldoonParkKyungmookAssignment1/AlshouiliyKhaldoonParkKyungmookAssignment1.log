@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.9.4)  9 SEP 2014 16:42
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.9.4)  10 SEP 2014 08:26
 entering extended mode
 **AlshouiliyKhaldoonParkKyungmookAssignment1.tex
 
-(C:\Users\chris\UC14\Git\UC-2014\MachineLearning\AlshouiliyKhaldoonParkKyungmookAssignment1\AlshouiliyKhaldoonParkKyungm
-ookAssignment1\AlshouiliyKhaldoonParkKyungmookAssignment1.tex
+(C:\Users\Kyungmook\UC2014\MachineLearning\AlshouiliyKhaldoonParkKyungmookAssignment1\AlshouiliyKhaldoonParkKyungmookAss
+ignment1\AlshouiliyKhaldoonParkKyungmookAssignment1.tex
 LaTeX2e <2014/05/01>
 Babel <3.9k> and hyphenation patterns for 68 languages loaded.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\article.cls"
@@ -389,20 +389,20 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@dimlist=\toks38
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.cfg"))
-(C:\Users\chris\UC14\Git\UC-2014\MachineLearning\AlshouiliyKhaldoonParkKyungmookAssignment1\AlshouiliyKhaldoonParkKyungm
-ookAssignment1\AlshouiliyKhaldoonParkKyungmookAssignment1.aux)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
+(C:\Users\Kyungmook\UC2014\MachineLearning\AlshouiliyKhaldoonParkKyungmookAssignment1\AlshouiliyKhaldoonParkKyungmookAss
+ignment1\AlshouiliyKhaldoonParkKyungmookAssignment1.aux)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
  ABD: EveryShipout initializing macros
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -424,7 +424,7 @@ Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             or
 (lastpage)             http://www.ctan.org/tex-archive/ 
 (lastpage)             install/macros/latex/contrib/pageslts.tds.zip
-(lastpage)             ! on input line 29.
+(lastpage)             ! on input line 34.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -443,8 +443,8 @@ Package lastpage Info: Please have a look at the pageslts package at
 * \oddsidemargin=13.08827pt
 * \evensidemargin=13.08827pt
 * \topmargin=13.08827pt
-* \headheight=0.0pt
-* \headsep=0.0pt
+* \headheight=35.0pt
+* \headsep=10.0pt
 * \topskip=12.0pt
 * \footskip=30.0pt
 * \marginparwidth=44.0pt
@@ -460,124 +460,187 @@ Package lastpage Info: Please have a look at the pageslts package at
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 43.
+LaTeX Font Info:    Try loading font information for U+msa on input line 41.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 43.
+LaTeX Font Info:    Try loading font information for U+msb on input line 41.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 43.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 41.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\jknappen\ursfs.fd"
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-Underfull \hbox (badness 10000) in paragraph at lines 48--51
+Underfull \hbox (badness 10000) in paragraph at lines 46--49
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 52--53
+Underfull \hbox (badness 10000) in paragraph at lines 50--51
 
  []
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 55.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 53.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 55.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 53.
 
-Underfull \hbox (badness 10000) in paragraph at lines 54--56
+Underfull \hbox (badness 10000) in paragraph at lines 52--54
 
  []
 
-Missing character: There is no Â in font cmr12!
-Missing character: There is no ¹ in font cmr12!
 
-Overfull \hbox (8.0011pt too wide) in paragraph at lines 75--81
-\OT1/cmr/m/n/12 clude that the three events A1, A2, A3 are pair-wise in-de-pen-dent. How-ever A1A2A3=f
+Underfull \hbox (badness 10000) in paragraph at lines 65--67
+
  []
 
-Missing character: There is no â in font cmr12!
-Missing character: There is no ˆ in font cmr12!
-Missing character: There is no © in font cmr12!
-Missing character: There is no â in font cmr12!
-Missing character: There is no ˆ in font cmr12!
-Missing character: There is no © in font cmr12!
-Missing character: There is no â in font cmr12!
-Missing character: There is no ˆ in font cmr12!
-Missing character: There is no © in font cmr12!
-Missing character: There is no â in font cmr12!
-Missing character: There is no ˆ in font cmr12!
-Missing character: There is no © in font cmr12!
-Missing character: There is no â in font cmr12!
-Missing character: There is no ˆ in font cmr12!
-Missing character: There is no © in font cmr12!
-Missing character: There is no â in font cmr12!
-Missing character: There is no ˆ in font cmr12!
-Missing character: There is no © in font cmr12!
-Missing character: There is no â in font cmr12!
-Missing character: There is no ˆ in font cmr12!
-Missing character: There is no © in font cmr12!
-Missing character: There is no â in font cmr12!
-Missing character: There is no ˆ in font cmr12!
-Missing character: There is no © in font cmr12!
-Missing character: There is no â in font cmr12!
-Missing character: There is no ˆ in font cmr12!
-Missing character: There is no © in font cmr12!
-Missing character: There is no â in font cmr12!
-Missing character: There is no ˆ in font cmr12!
-Missing character: There is no © in font cmr12!
-Missing character: There is no â in font cmr12!
-Missing character: There is no ˆ in font cmr12!
-Missing character: There is no © in font cmr12!
-Missing character: There is no â in font cmr12!
-Missing character: There is no ˆ in font cmr12!
-Missing character: There is no © in font cmr12!
-Missing character: There is no â in font cmr12!
-Missing character: There is no ˆ in font cmr12!
-Missing character: There is no © in font cmr12!
-Missing character: There is no â in font cmr12!
-Missing character: There is no ˆ in font cmr12!
-Missing character: There is no © in font cmr12!
-Missing character: There is no â in font cmr12!
-Missing character: There is no ˆ in font cmr12!
-Missing character: There is no © in font cmr12!
-Missing character: There is no â in font cmr12!
-Missing character: There is no ˆ in font cmr12!
-Missing character: There is no © in font cmr12!
-Missing character: There is no â in font cmr12!
-Missing character: There is no ˆ in font cmr12!
-Missing character: There is no © in font cmr12!
+
+Underfull \hbox (badness 10000) in paragraph at lines 68--70
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 71--76
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 77--80
+
+ []
+
 [1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 ]
+Underfull \hbox (badness 10000) in paragraph at lines 81--82
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 83--86
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 87--88
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 93--94
+
+ []
+
+Missing character: There is no â in font cmr12!
+Missing character: There is no ˆ in font cmr12!
+Missing character: There is no © in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no ˆ in font cmr12!
+Missing character: There is no © in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no ˆ in font cmr12!
+Missing character: There is no © in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no ˆ in font cmr12!
+Missing character: There is no © in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no ˆ in font cmr12!
+Missing character: There is no © in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no ˆ in font cmr12!
+Missing character: There is no © in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no ˆ in font cmr12!
+Missing character: There is no © in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no ˆ in font cmr12!
+Missing character: There is no © in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no ˆ in font cmr12!
+Missing character: There is no © in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no ˆ in font cmr12!
+Missing character: There is no © in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no ˆ in font cmr12!
+Missing character: There is no © in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no ˆ in font cmr12!
+Missing character: There is no © in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no ˆ in font cmr12!
+Missing character: There is no © in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no ˆ in font cmr12!
+Missing character: There is no © in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no ˆ in font cmr12!
+Missing character: There is no © in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no ˆ in font cmr12!
+Missing character: There is no © in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no ˆ in font cmr12!
+Missing character: There is no © in font cmr12!
+
+Underfull \hbox (badness 10000) in paragraph at lines 95--102
+
+ []
+
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no “ in font cmr12!
- 
+
+Underfull \hbox (badness 10000) in paragraph at lines 116--117
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 118--127
+
+ []
+
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 130--136
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 138--141
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 143--146
+
+ []
+
+
 AED: lastpage setting LastPage
-[2] [3]
-(C:\Users\chris\UC14\Git\UC-2014\MachineLearning\AlshouiliyKhaldoonParkKyungmookAssignment1\AlshouiliyKhaldoonParkKyungm
-ookAssignment1\AlshouiliyKhaldoonParkKyungmookAssignment1.aux) ) 
+[3]
+(C:\Users\Kyungmook\UC2014\MachineLearning\AlshouiliyKhaldoonParkKyungmookAssignment1\AlshouiliyKhaldoonParkKyungmookAss
+ignment1\AlshouiliyKhaldoonParkKyungmookAssignment1.aux) ) 
 Here is how much of TeX's memory you used:
- 10279 strings out of 493706
- 190131 string characters out of 3144584
- 238731 words of memory out of 3000000
- 13388 multiletter control sequences out of 15000+200000
+ 10274 strings out of 493706
+ 190032 string characters out of 3144572
+ 236602 words of memory out of 3000000
+ 13383 multiletter control sequences out of 15000+200000
  9740 words of font info for 38 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 48i,11n,45p,473b,376s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
-/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts
-/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Fi
-les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy1
-0.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on AlshouiliyKhaldoonParkKyungmookAssignment1.pdf (3 pages, 91684 bytes).
+ 48i,11n,45p,473b,378s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
+bx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
+/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
+msfonts/symbols/msam10.pfb>
+Output written on AlshouiliyKhaldoonParkKyungmookAssignment1.pdf (3 pages, 96031 bytes).
 PDF statistics:
- 43 PDF objects out of 1000 (max. 8388607)
+ 47 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
