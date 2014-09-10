@@ -14,11 +14,11 @@ NormalPos.top=26
 NormalPos.right=1362
 NormalPos.bottom=478
 Class=LaTeXView
-Document=IWS_HW_1.tex
+Document=AlshouiliyKhaldoonParkKyungmookAssignment1.tex
 
 [Frame0_View0,0]
-TopLine=130
-Cursor=4614
+TopLine=2
+Cursor=633
 
 [SessionInfo]
 FrameCount=1
