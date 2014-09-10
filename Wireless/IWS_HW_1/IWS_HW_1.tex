@@ -84,7 +84,7 @@ The first and the last digits are fixed; therefore, 1 * 10 * 1 = \pgfmathparse{i
 it begins with a 2?\\}
 Given the number begins with the digit 2, 100 numbers will be formed.\\
 Out of the 100 numbers, 10 numbers will end with the digit 9.\\
-Therefore, the probability that a randomly formed number ends with 9 given that it begins with a 2 is 10/100 ~= \pgfmathparse{round(10/100)}\pgfmathresult\\
+Therefore, the probability that a randomly formed number ends with 9 given that it begins with a 2 is 10/100 ~= \pgfmathparse{int(10)}\pgfmathresult\%\\
 
 \end{enumerate}
 
@@ -117,13 +117,13 @@ $n_{users}$ = number of users\\
 $\lambda$ = arrival rate\\
 $\mu$ = service rate\\
 
-$\lambda$ = $\frac{\sum{CallInitiationTime}}{NumberOfUsers}$ = \pgfmathparse{(2+3+1+7+4+2+5+1)/10}\pgfmathresult\\
+$\lambda$ = $\frac{\sum{CallInitiationTime}}{NumberOfUsers}$ = $\frac{10}{0+2+0+3+1+7+4+2+5+1}$ = \pgfmathparse{10/(2+3+1+7+4+2+5+1)}\pgfmathresult\\
 
-$\mu$ = $\frac{\sum{CallHoldingTime}}{NumberOfUsers}$ = \pgfmathparse{(5+7+4+8+6+2+1+4+3+2)/10}\pgfmathresult\\
+$\mu$ = $\frac{\sum{CallHoldingTime}}{NumberOfUsers}$ = $\frac{10}{5+7+4+8+6+2+1+4+3+2}$ = \pgfmathparse{10/(5+7+4+8+6+2+1+4+3+2)}\pgfmathresult\\
 
 $W_s$ = Average dwell time\\
 
-$W_s$ = $\frac{1}{\mu-\lambda}$ = \pgfmathparse{1/((5+7+4+8+6+2+1+4+3+2)/10-(2+3+1+7+4+2+5+1)/10)}\pgfmathresult\\
+$W_s$ = $\frac{1}{\mu-\lambda}$ = \pgfmathparse{1/(10/(5+7+4+8+6+2+1+4+3+2)-10/(2+3+1+7+4+2+5+1))}\pgfmathresult\\
 
 
 
