@@ -11,14 +11,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=586
-NormalPos.bottom=524
+NormalPos.right=1362
+NormalPos.bottom=478
 Class=LaTeXView
 Document=AlshouiliyKhaldoonParkKyungmookAssignment1.tex
 
 [Frame0_View0,0]
 TopLine=2
-Cursor=346
+Cursor=633
 
 [SessionInfo]
 FrameCount=1

@@ -11,14 +11,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1066
-NormalPos.bottom=244
+NormalPos.right=1362
+NormalPos.bottom=478
 Class=LaTeXView
 Document=IWS_HW_1.tex
 
 [Frame0_View0,0]
-TopLine=132
-Cursor=4719
+TopLine=130
+Cursor=4614
 
 [SessionInfo]
 FrameCount=1

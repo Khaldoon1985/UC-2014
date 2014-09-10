@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.9.4)  10 SEP 2014 08:26
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.9.4)  10 SEP 2014 13:43
 entering extended mode
 **AlshouiliyKhaldoonParkKyungmookAssignment1.tex
 
-(C:\Users\Kyungmook\UC2014\MachineLearning\AlshouiliyKhaldoonParkKyungmookAssignment1\AlshouiliyKhaldoonParkKyungmookAss
-ignment1\AlshouiliyKhaldoonParkKyungmookAssignment1.tex
+(C:\Users\chris\UC14\MachineLearning\AlshouiliyKhaldoonParkKyungmookAssignment1\AlshouiliyKhaldoonParkKyungmookAssignmen
+t1\AlshouiliyKhaldoonParkKyungmookAssignment1.tex
 LaTeX2e <2014/05/01>
 Babel <3.9k> and hyphenation patterns for 68 languages loaded.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\article.cls"
@@ -389,8 +389,8 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@dimlist=\toks38
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.cfg"))
-(C:\Users\Kyungmook\UC2014\MachineLearning\AlshouiliyKhaldoonParkKyungmookAssignment1\AlshouiliyKhaldoonParkKyungmookAss
-ignment1\AlshouiliyKhaldoonParkKyungmookAssignment1.aux)
+(C:\Users\chris\UC14\MachineLearning\AlshouiliyKhaldoonParkKyungmookAssignment1\AlshouiliyKhaldoonParkKyungmookAssignmen
+t1\AlshouiliyKhaldoonParkKyungmookAssignment1.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 34.
 LaTeX Font Info:    ... okay on input line 34.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 34.
@@ -622,23 +622,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 143--146
 
 AED: lastpage setting LastPage
 [3]
-(C:\Users\Kyungmook\UC2014\MachineLearning\AlshouiliyKhaldoonParkKyungmookAssignment1\AlshouiliyKhaldoonParkKyungmookAss
-ignment1\AlshouiliyKhaldoonParkKyungmookAssignment1.aux) ) 
+(C:\Users\chris\UC14\MachineLearning\AlshouiliyKhaldoonParkKyungmookAssignment1\AlshouiliyKhaldoonParkKyungmookAssignmen
+t1\AlshouiliyKhaldoonParkKyungmookAssignment1.aux) ) 
 Here is how much of TeX's memory you used:
  10274 strings out of 493706
- 190032 string characters out of 3144572
- 236602 words of memory out of 3000000
+ 189990 string characters out of 3144584
+ 236635 words of memory out of 3000000
  13383 multiletter control sequences out of 15000+200000
  9740 words of font info for 38 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  48i,11n,45p,473b,378s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
-bx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
-/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/Mi
-KTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
-msfonts/symbols/msam10.pfb>
-Output written on AlshouiliyKhaldoonParkKyungmookAssignment1.pdf (3 pages, 96031 bytes).
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.p
+fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
+c/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2
+.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
+s/symbols/msam10.pfb>
+Output written on AlshouiliyKhaldoonParkKyungmookAssignment1.pdf (3 pages, 96710 bytes).
 PDF statistics:
  47 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
