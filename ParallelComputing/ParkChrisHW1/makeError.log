@@ -1,0 +1,1 @@
+nvcc -c student_func.cu -O3 -arch=sm_11 -Xcompiler -Wall -Xcompiler -Wextra -m64
