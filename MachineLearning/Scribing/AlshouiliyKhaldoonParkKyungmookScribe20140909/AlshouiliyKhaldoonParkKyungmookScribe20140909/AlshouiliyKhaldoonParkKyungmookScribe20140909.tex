@@ -94,9 +94,83 @@ Can extend to \underline{P}(X$_1$, $\ldots$ , X$_D$) : CDF, PDF/PMF\\
 
 \newpage
 
-}
+For a vector X = (X$_1$, X$_2$, X$_3$)\\
+
+\[
+Cov [X] =
+\left[ {\begin{array}{ccc}
+Var(X_1) & Cov(X_1,X_2) & Cov(X_1,X_3) \\
+Cov(X_2,X_1) & Var(X_2) & Cov(X_2,X_3) \\
+Cov(X_3,X_1) & Cov(X_3,X_2) & Var(X_3) \\
+\end{array} } \right]
+\]
+
+Cov $\in$ (0, $\infty$)\\
+
+\underline{Correlation} $\rho$(X,Y) = $\frac{Cov(X,Y)}{\sqrt{Var(X)Var(Y)}}$ $\in$ [-1,1]\\
+
+X, Y independent $\Rightarrow$ Cov(X,Y) = 0 $\Rightarrow$ $\rho$(X,Y) = 0 (Uncorrelated)\\
+
+Independence $\rightleftharpoons$ Uncorrelated\\
+
+ex)\\
+X $\sim$ u(-1,1) ; Y = X$^2$ $\Rightarrow$ X, Y are dependent\\
+$\rho$(X,Y) = 0\\
+
+E(X) = $\frac{-1+1}{2}$ = 0  Var(X) = $\frac{(1-(-1)^2}{12}$ = $\frac{4}{12}$ = $\frac{1}{3}$\\\\\\
+\itab{E(Y)}\tab{= $\int_{-1}^1x^2f(x)dx$}\\
+\itab{}\tab{= $\int_{-1}^1x^2(\frac{1}{2})dx$=$\frac{1}{2}\frac{x^4}{4}\arrowvert_{-1}^1 = \frac{2}{6} = \frac{1}{3}$}\\
+
+E(XY) = $\int_{-1}^1x^3\frac{1}{2}dx = \frac{1}{2}\frac{x^4}{4}\arrowvert_{-1}^1 = \frac{1}{2}\cdot0$\\
+
+Cov(X,Y) = E(XY) - E(X)E(Y) = 0 - 0 $\cdot$ $\frac{1}{3}$ = 0 - 0 = 0\\
+
+} %End of \Large
 \end{Section}
+
+\newpage
+
 \begin{Section}{2}{Transformation of Random Variables}
+
+\Large{
+
+X $\sim$ P(X)   p:pdf\\
+Y = f(X)    What is the distribution of Y?\\
+$P_Y(Y \leq y) = P_Y(f(X) \leq y) = \underline{P}_X(X \leq f^{-1}(y)) = P(f^{-1}(y))$\\
+
+ex) Y = aX+b $\Rightarrow$ f(x) = aX+b\\
+
+\itab{f$^{-1}$(y) = $\frac{y-b}{a}$}\tab{X = -1 Y = b-a ; X = 1 Y = a+b}\\
+
+P$_Y$(y) = P$_X$ ($\frac{y-b}{a}$)\\
+
+ex) X $\sim$ u(-1,1)
+
+\[
+P_X(x) =
+\left\{ {\begin{array}{cc}
+0 & x \leq -1 \\
+\frac{1}{1-(2-1)} & -1 < X < 1 \\
+0 & x \geq 1 \\
+\end{array} } \right.
+\]
+
+\[
+P_X(\frac{y-b}{a}) =
+\left\{ {\begin{array}{cc}
+0 & \frac{y-b}{a} \leq -1 \\
+\frac{1}{1-(2-1)} & -1 < \frac{y-b}{a} < 1 \\
+0 & x \geq 1 \\
+\end{array} } \right.
+= \left\{ {\begin{array}{cc}
+0 & \frac{y-b}{a} \leq -1 \\
+\frac{1}{1-(2-1)} & -1 < \frac{y-b}{a} < 1 \\
+0 & x \geq 1 \\
+\end{array} } \right.
+\]
+
+} %End of \Large
+
 \end{Section}
 \begin{Section}{3}{General Transformations}
 \end{Section}

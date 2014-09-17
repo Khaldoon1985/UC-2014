@@ -11,14 +11,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=586
-NormalPos.bottom=814
+NormalPos.right=663
+NormalPos.bottom=472
 Class=LaTeXView
 Document=AlshouiliyKhaldoonParkKyungmookScribe20140909.tex
 
 [Frame0_View0,0]
-TopLine=72
-Cursor=2383
+TopLine=141
+Cursor=4449
 
 [Frame1]
 Flags=0
@@ -29,14 +29,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=586
-NormalPos.bottom=814
+NormalPos.right=663
+NormalPos.bottom=472
 Class=LaTeXView
 Document=..\..\..\homework_template.tex
 
 [Frame1_View0,0]
-TopLine=63
-Cursor=1653
+TopLine=103
+Cursor=2905
 
 [SessionInfo]
 FrameCount=2
