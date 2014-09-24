@@ -1,5 +1,6 @@
-\documentclass[twoside]{article}
-
+\documentclass[11pt]{extarticle}
+\usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{epsfig}
 
 \setlength{\oddsidemargin}{0.25 in}
@@ -10,6 +11,13 @@
 \setlength{\headsep}{0.75 in}
 \setlength{\parindent}{0 in}
 \setlength{\parskip}{0.1 in}
+
+\newenvironment{Section}[2]{
+  \section*{\huge{Section #1:\\ #2}}
+}
+
+\newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
+\newcommand{\tab}[1]{\hspace{.2\textwidth}\rlap{#1}}
 
 \newcommand{\lecture}[4]{
    \pagestyle{myheadings}
@@ -32,19 +40,227 @@
    \vspace*{4mm}
 }
 
+%Send your finished notes to the instructor
+%({\tt ancaralescu@gmail.com}), including the Latex file and all .eps
+%or .pdf files that you've created for figures. Double-check that your file compiles with {\tt pdflatex lec1.tex} before you send it.
+
+%These notes should be complete, correct, clear, and free of typos.
+
 \begin{document}
 
-\lecture{Lecture name}{Lecture 1: 8/26/14}{Anca Ralescu}{Scribe names}
+\lecture{MLE, MAP, Bayesian Reasoning - Chapter 3\&5} {Lecture 6: 9/11/14}{Anca Ralescu}{Khaldoon Ashouiliy, Kyungmook Park}
 
-\section{Instructions}
+\begin{Section}{1}{Bayesian Concept Learning}
+\end{Section}
+\begin{Section}{2}{The Beta Binomial Model}
+\end{Section}
+\begin{Section}{3}{Most Probable Classification}
+\end{Section}
+\begin{Section}{4}{The Gamma Distribution}
+\end{Section}
 
-Send your finished notes to the instructor
-({\tt ancaralescu@gmail.com}), including the Latex file and all .eps
-or .pdf files that you've created for figures. Double-check that your file compiles with {\tt pdflatex lec1.tex} before you send it.
 
-These notes should be complete, correct, clear, and free of typos.
-\section{...}
-\subsection{...}
+
+\newpage
+
+\begin{Section}{1}{Bayesian Concept Learning}
+\Large{
+D: Data ( set of example for a concept C)\\
+ɦ: a point Hypothesis about C.\\
+Note: That both p(D$|$h) D and ɦ can be viewed as functions from the set of instances to \{0,1\}\\
+C: y  $\rightarrow$ \{0,1\}
+
+\[
+c(instance) =
+\left\{ {\begin{array}{cc}
+1 & if\;example\;of\;the\;concept\;C\\
+0 & otherwise \\
+\end{array} } \right.
+\]
+
+h and D are consistent if C(i) = h(i) $\forall$ i $\in$ Y}\\
+
+Bayes Theorem\\ 
+			P(h$|$D) = $\frac{P(h|D)P(h)}{P(D)}$\\
+			
+How to choose hypotheses?\\
+
+\underline{Correct the hypotheses?}
+\begin{itemize}
+\item
+Correct on the training net.
+\item
+But not overfitting.
+\end{itemize}
+
+\underline{Example} Learning a real value function.\\
+ 
+f: real valued function.\\
+\itab{\underline{Training set}}\tab{D = \{($x_i, d_i$)$|d_i$=f($x_i$) + $e_i$\}}\\
+\itab{}\tab{i=1,\ldots,m}\\
+
+$e_i$ $\sim$ N (0, $\sigma_i$)\\
+
+$\Rightarrow$ $h_{ML}$ = $\underset{h}{argmin}\sum_{i=1}^m[d_i-h(x_i)]^2$\\ 
+\underline{Proof}\\
+\itab{$h_{ML}$}\tab{=$\underset{h\in{H}}{argmax}P(D|h)$}\\
+\itab{}\tab{=$\underset{h\in{H}}{argmax}$}\\
+\itab{}\tab{=$\underset{h\in{H}}{argmax}$}\\
+\itab{}\tab{=$\underset{h\in{H}}{argmax}$}\\
+\itab{}\tab{=$\underset{h\in{H}}{argmax}$}\\
+\itab{}\tab{=$\underset{h\in{H}}{argmax}$}\\
+
+If iid N(0,$\sigma^2$)=0\\
+Then,\\
+di iid N(f($x_c$),$\sigma^2$)\\
+iid = independent and identically distributed\\
+
+from this point on we need to know the actual distribution of (di/h). 
+
+Notes:
+If we use the Hypothesis 
+H(xi) + ei
+Hi=di-h(xi)
+ ɦML= any max ∑_(i=1)^μ▒log⁡[1/σ2] +e^(- (di.h(xi)2/2σ2)
+ɦML= any max ∑_(i=1)^μ▒log⁡[1/2σ2] +log⁡| e^(- (di.h(xi)2/2σ2) we can drop this
+= any max ∑_(i=1)^μ▒-⁡〖di-h(xi)2/2σ2〗 
+= any max -⁡[1/2σ2] ∑_(i=1)^μ▒〖(di.h(xi)2)〗
+= any max ∑_(i=1)^μ▒〖(di.h(xi)2)〗
+We can speak about 
+ɦMap = ɦML 
+P(h) = 1/H.
+
+} %End of \Large
+\end{Section}
+
+\newpage
+
+\begin{Section}{2}{The Beta Binomial Model}
+
+\Large{
+
+X $\sim$ P(X)   p:pdf\\
+Y = f(X)    What is the distribution of Y?\\
+$P_Y(Y \leq y) = P_Y(f(X) \leq y) = \underline{P}_X(X \leq f^{-1}(y)) = P(f^{-1}(y))$\\
+
+ex) Y = aX+b $\Rightarrow$ f(x) = aX+b\\
+
+\itab{f$^{-1}$(y) = $\frac{y-b}{a}$}\tab{X = -1 Y = b-a ; X = 1 Y = a+b}\\
+
+P$_Y$(y) = P$_X$ ($\frac{y-b}{a}$)\\
+
+ex) X $\sim$ u(-1,1)
+
+\[
+P_X(x) =
+\left\{ {\begin{array}{cc}
+0 & x \leq -1 \\
+\frac{1}{2} & -1 < X < 1 \\
+0 & x \geq 1 \\
+\end{array} } \right.
+\]
+
+\[
+P_X(\frac{y-b}{a}) =
+\left\{ {\begin{array}{cc}
+0 & \frac{y-b}{a} \leq -1 \\
+\frac{1}{b-a+a+b} & -1 < \frac{y-b}{a} < 1 \\
+0 & x \geq 1 \\
+\end{array} } \right.
+= \left\{ {\begin{array}{cc}
+0 & \frac{y-b}{a} \leq -1 \\
+\frac{1}{4} & -1 < \frac{y-b}{a} < 1 \\
+0 & x \geq 1 \\
+\end{array} } \right.
+\]
+
+\[
+\left\{ {\begin{array}{cc}
+E(y) = &a E(x) + b \\
+Var(y) = &a^2 E(x) \\
+\end{array} } \right.
+\]
+
+For multivariable case : X = ($X_1$, \ldots, X$_n$), y=a$^T$x+b\\
+E(y) = y=a$^T$E(x)+b\\
+
+} %End of \Large
+
+\end{Section}
+\begin{Section}{3}{Most Probable Classification}
+\Large{
+\underline{Discrete Case} X $\sim$ u(1, \ldots, 4)\\
+P(x=i) = $\frac{1}{4}$ i=1,2,3,4\\
+\[
+Y=
+\left\{ {\begin{array}{cc}
+1& if\;X\;is\;even \\
+0& if\;X\;is\;odd \\
+\end{array} } \right.
+\]
+
+\itab{\underline{P}(y = 1)}\tab{= $P_x$ (x is even)}\\
+\itab{}\tab{$\sum{P_x(X=k)\;=\;P(X=2)+P(X=4)=\frac{2}{4}=\frac{1}{2}}$}\\
+
+k $\in$ \{1, 2, 3, 4\}\\
+k is even\\
+
+P(y=0) = \ldots = $\frac{1}{2}$\\
+
+\underline{Continuous Case}\\
+\itab{X $\sim$ $P_x$)(x)}\tab{:pdf}\\
+\itab{Y = f(X)}\tab{$\Rightarrow$ $P_Y$(y) = ?}\\
+
+Use cdf
+$P_Y$(Y$\leq$y) = $P_Y$(f(X)$\leq$y) = $P_X$(X$\leq$f$^{-1}$(y)) = $P_X$(f$^{-1}$(y))\\
+
+Provided that f is invertible\\
+Then $P_Y$(y) the pdf of Y is obtained by taking the derivative of cdf of Y\\
+
+$P_Y$(y)=$\frac{d}{dy}P_Y$(Y$\leq$y)=$\frac{d}{dy}P_X$(f$^{-1}$(y))=$\frac{d}{dx}P_X$(x)$\cdot\frac{dx}{dy}$\\
+\itab{Where x=f$^{-1}$(y)}\tab{  $\;\;\;$ignore sign of $\frac{dx}{dy}$}\\
+$\Rightarrow P_Y$(y)=$P_X$(x)[$\frac{dx}{dy}$] ; For multivariable case J = $(\frac{\sigma{y_i}}{\sigma{x_i}})_{i,j}$\\
+\itab{}\tab{$\;\;\;\;\;\;\;\;\;\;\;\;\;$[det J]}
+
+\underline{example}\\
+
+X = ($X_1$,$X_2$);\\
+Y = ($\gamma$,$\theta$) : $X_1$ = $\gamma$Cos$\theta$; $X_2$ = $\gamma$Sin$\theta$\\
+
+\[
+J =
+\left( {\begin{array}{cc}
+\frac{\sigma{x_1}}{\sigma\gamma} & \frac{\sigma{x_1}}{\sigma\theta}\\
+\frac{\sigma{x_2}}{\sigma\gamma} & \frac{\sigma{x_2}}{\sigma\theta}\\
+\end{array} } \right)
+=
+\left( {\begin{array}{cc}
+Cos\theta & -\gamma{Sin\theta}\\
+Sin\theta & \gamma{Cos\theta}\\
+\end{array} } \right);
+ det(J) = \gamma{Cos^2\theta}+\gamma{Sin^2}\theta = \gamma\\
+\]
+
+$|$det(J)$|$=$|\gamma|$  $P_Y$(y)=$P_X$(x)$|$det(J)$|$=$|\gamma|P_X$(x)\\
+
+} %End of Large
+
+
+\end{Section}
+\begin{Section}{4}{The Gamma Distribution}
+\Large{
+X, f(X)
+
+Draw samples from X $x_1,\ldots,x_5$ (observations)\\
+Approximate f(X) by the empirical distribution\\
+of f(X) on $x_1,\ldots,x_5$\\
+
+$\bar{u}$: A = $\bar{u}\gamma^2\Rightarrow\bar{u}=\frac{A}{\gamma^2}=Approximate$\\
+A=4$\gamma^2(\frac{1}{5})\sum_{i=1}^5f(x_i,y_i) f(x,y)=I(x^2+y^2\leq\gamma^2)$\\ 
+
+} %End of Large
+
+\end{Section}
 
 \end{document}
 
