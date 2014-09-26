@@ -1,7 +1,9 @@
 \documentclass[11pt]{extarticle}
+\usepackage{slashbox}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{epsfig}
+\usepackage[makeroom]{cancel}
 
 \setlength{\oddsidemargin}{0.25 in}
 \setlength{\evensidemargin}{-0.25 in}
@@ -78,7 +80,7 @@ c(instance) =
 \end{array} } \right.
 \]
 
-h and D are consistent if C(i) = h(i) $\forall$ i $\in$ Y}\\
+h and D are consistent if C(i) = h(i) $\forall$ i $\in$ Y\\
 
 Bayes Theorem\\ 
 			P(h$|$D) = $\frac{P(h|D)P(h)}{P(D)}$\\
@@ -104,31 +106,30 @@ $e_i$ $\sim$ N (0, $\sigma_i$)\\
 $\Rightarrow$ $h_{ML}$ = $\underset{h}{argmin}\sum_{i=1}^m[d_i-h(x_i)]^2$\\ 
 \underline{Proof}\\
 \itab{$h_{ML}$}\tab{=$\underset{h\in{H}}{argmax}P(D|h)$}\\
-\itab{}\tab{=$\underset{h\in{H}}{argmax}$}\\
-\itab{}\tab{=$\underset{h\in{H}}{argmax}$}\\
-\itab{}\tab{=$\underset{h\in{H}}{argmax}$}\\
-\itab{}\tab{=$\underset{h\in{H}}{argmax}$}\\
-\itab{}\tab{=$\underset{h\in{H}}{argmax}$}\\
+\itab{}\tab{=$\underset{h\in{H}}{argmax} P(d_i,\ldots,d_m|h)$ \underline{ind}}\\
+\itab{}\tab{=$\underset{h\in{H}}{argmax} P(d_1|h) x\ldots{x}P(d_m|h)$}\\
+\itab{}\tab{=$\underset{h\in{H}}{argmax} \prod_{i=1}^mP(d_i|h)$}\\
+\itab{}\tab{=$\underset{h\in{H}}{argmax} \log[\prod_{i=1}^mP(d_i|h)]$}\\
+\itab{}\tab{=$\underset{h\in{H}}{argmax} \sum_{i=1}^m\log{P(d_i|h)}$}\\
 
 If iid N(0,$\sigma^2$)=0\\
-Then,\\
-di iid N(f($x_c$),$\sigma^2$)\\
+Then, $d_i$ iid N(f($x_c$),$\sigma^2$)\\
 iid = independent and identically distributed\\
 
-from this point on we need to know the actual distribution of (di/h). 
+from this point on we need to know the actual distribution of (di/h).\\
 
-Notes:
-If we use the Hypothesis 
-H(xi) + ei
-Hi=di-h(xi)
- ɦML= any max ∑_(i=1)^μ▒log⁡[1/σ2] +e^(- (di.h(xi)2/2σ2)
-ɦML= any max ∑_(i=1)^μ▒log⁡[1/2σ2] +log⁡| e^(- (di.h(xi)2/2σ2) we can drop this
-= any max ∑_(i=1)^μ▒-⁡〖di-h(xi)2/2σ2〗 
-= any max -⁡[1/2σ2] ∑_(i=1)^μ▒〖(di.h(xi)2)〗
-= any max ∑_(i=1)^μ▒〖(di.h(xi)2)〗
-We can speak about 
-ɦMap = ɦML 
-P(h) = 1/H.
+Use $e_i$ $\sim$ N (0, $\sigma_i$)\\
+
+P($d_i|h$) = $\frac{1}{\sigma\sqrt{2\bar{u}}}e^{\frac{(d_i-h(x_i))^2}{2\sigma}}$\\
+
+$\log{P(d_i|h)} = - \log{(\sigma\sqrt{2\bar{u}})}-\frac{1}{2\sigma}(d_i-h(x_i))^2$\\
+
+\itab{$\Rightarrow\;h_{ML}$}\tab{=$\underset{h\in{H}}{argmax}\sum_{i=1}^m[-\log{(\sigma\sqrt{2\bar{u}})}-\frac{1}{2\sigma}(d_i-h(x_i))^2]$}\\
+\itab{}\tab{=$\underset{h\in{H}}{argmax}[-\frac{1}{2\sigma}\sum_{i=1}^m(d_i-h(x_i))^2]$}\\
+\itab{}\tab{=$\underset{h\in{H}}{argmax}\sum_{i=1}^m(d_i-h(x_i))^2$}\\
+$(d_i-h(x_i))^2$ is the square error between f($x_i$) and h($x_i$)\\
+
+\framebox[1.1\width]{$h_{ML} \equiv h_{square\;error}$} $e_i$ $\sim$ N (0, $\sigma_i$)
 
 } %End of \Large
 \end{Section}
@@ -139,109 +140,87 @@ P(h) = 1/H.
 
 \Large{
 
-X $\sim$ P(X)   p:pdf\\
-Y = f(X)    What is the distribution of Y?\\
-$P_Y(Y \leq y) = P_Y(f(X) \leq y) = \underline{P}_X(X \leq f^{-1}(y)) = P(f^{-1}(y))$\\
+Learning to predict probabilities we want to learn f:X$\rightarrow$\{0,1\}\\
+Define $P_0(x)$ = P(f(x) = 0 ; $P_1(x)$ = P(f(x) = 1) = ($-P_0(x)$)\\
 
-ex) Y = aX+b $\Rightarrow$ f(x) = aX+b\\
-
-\itab{f$^{-1}$(y) = $\frac{y-b}{a}$}\tab{X = -1 Y = b-a ; X = 1 Y = a+b}\\
-
-P$_Y$(y) = P$_X$ ($\frac{y-b}{a}$)\\
-
-ex) X $\sim$ u(-1,1)
+\underline{example}\\
+X = \{x$|$x is a patient with symptom\}\\
 
 \[
-P_X(x) =
+f(x) =
 \left\{ {\begin{array}{cc}
-0 & x \leq -1 \\
-\frac{1}{2} & -1 < X < 1 \\
-0 & x \geq 1 \\
+1 & if x serving \\
+0 & otherwise \\
 \end{array} } \right.
 \]
 
+We really want to learn the 'Concept' $P_1(x)$ = P(f(x)=1)\\
+based on the learning data\\
+
+D = \{$<x_i,d_i>,d_i=0\;or\;1\;i=1,\ldots,m$\}\\
+
+What is P(D$|$h)?\\
+
+\underline{Assume}\\
+$x_i,d_i$ are random variables.\\
+$x_i$ and h are independent.\\
+
+\underline{Claim} The general\\
+P($x_i,d_i|h$)=P($d_i|h,u_i$)P($x_i|h$)\\
+
+\underline{Proof}\\
+\itab{Right Hand Side}\tab{ = $P(d_i|h_i{u_i})P(x_i|h)$ = $\frac{P(d_i,h,u_i}{\cancel{P(h,u_i)}}\frac{\cancel{P(u_i,h)}}{P(h)}$}\\
+\itab{}\tab{ = $P(d_i,x_i|h)$ = Left Hand Side}\\
+
+Because $x_i$ and h are independent $\Rightarrow$\\
+P(D$|$h) = $\prod_{i=1}^mP(x_i,d_i|h)=\prod_{i=1}^mP(d_i|h,u_i)P(x_i)$\\
+Now \underline{P}$(d_i=1|h,u_i)=h(x_i)$\\
 \[
-P_X(\frac{y-b}{a}) =
+\Rightarrow P(d_i|h,u_i) =
 \left\{ {\begin{array}{cc}
-0 & \frac{y-b}{a} \leq -1 \\
-\frac{1}{b-a+a+b} & -1 < \frac{y-b}{a} < 1 \\
-0 & x \geq 1 \\
-\end{array} } \right.
-= \left\{ {\begin{array}{cc}
-0 & \frac{y-b}{a} \leq -1 \\
-\frac{1}{4} & -1 < \frac{y-b}{a} < 1 \\
-0 & x \geq 1 \\
+h(u_i) & if\;d_i=1 \\
+1-h(x_i) & d_i=0 \\
 \end{array} } \right.
 \]
 
-\[
-\left\{ {\begin{array}{cc}
-E(y) = &a E(x) + b \\
-Var(y) = &a^2 E(x) \\
-\end{array} } \right.
-\]
+$\Rightarrow$ $P(d_i|h(x_i))=[h(x_i)]^{d_i}[1-h(x_i)]^{1-d_i}$\\
 
-For multivariable case : X = ($X_1$, \ldots, X$_n$), y=a$^T$x+b\\
-E(y) = y=a$^T$E(x)+b\\
+$\Rightarrow$ P(D$|$h) = $\prod_{i=1}^m[h(x_i)]^{d_i}[1-h(x_i)]^{1-d_i}P(x_i)$\\
+
+\itab{$h_{ML}$}\tab{=$\underset{h}{argmax}\prod_{i=1}^m[h(x_i)]^{d_i}[1-h(x_i)]^{1-d_i}P(x_i)$}\\
+\itab{}\tab{=$\underset{h}{argmax}\underset{Negative Cross Entropy}{\sum_{i=1}^m[d_ih(x_i)+(1-d_i)[1-h(x_i)]+\cancel{\log{P(x_i)}}]}$}\\
 
 } %End of \Large
 
 \end{Section}
 \begin{Section}{3}{Most Probable Classification}
 \Large{
-\underline{Discrete Case} X $\sim$ u(1, \ldots, 4)\\
-P(x=i) = $\frac{1}{4}$ i=1,2,3,4\\
-\[
-Y=
-\left\{ {\begin{array}{cc}
-1& if\;X\;is\;even \\
-0& if\;X\;is\;odd \\
-\end{array} } \right.
-\]
+Suppose $P(h_1|D)=0.4$ $P(h_2|D)=0.3$ $P(h_3|D)=0.3$\\
+$h_1(x)=+$, $h_2(x)=-$, $h_3(x)=-$\\
+$h_MAP=h_1$; The Most Probable Classification\\
 
-\itab{\underline{P}(y = 1)}\tab{= $P_x$ (x is even)}\\
-\itab{}\tab{$\sum{P_x(X=k)\;=\;P(X=2)+P(X=4)=\frac{2}{4}=\frac{1}{2}}$}\\
+\underline{Bayes Optimal Classifier}\\
+=$\underset{v \in V}{argmax}\sum_{h \in H}P(v|h)P(h|D)$\\
 
-k $\in$ \{1, 2, 3, 4\}\\
-k is even\\
+\centering
+$v\in\{+,-\}$\\
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{|c|c|c|c|}\hline
+	\backslashbox{h}{P}	&	P(D$|$h)	&	P(-$|$h)	&	P(+$|$h)\\\hline
+	$h_1$	&	0.4					&	0					&	1			\\\hline
+	$h_2$	&	0.3					&	1					&	0			\\\hline
+	$h_3$	&	0.3					&	1					&	0			\\\hline
+	\end{tabular}
+	\label{tab:booktabs}
+\end{table}
+\pagebreak
+\flushleft
+$\sum_{i=1}^3P(+|h_i)P(h_i|D)=1\times0.4+0\times0.3+0\times0.3=0.4$\\
+$\sum_{i=1}^3P(-|h_i)P(h_i|D)=0\times0.4+1\times0.3+1\times0.3=0.6$\\
 
-P(y=0) = \ldots = $\frac{1}{2}$\\
+$\Rightarrow$ $\underset{v \in \{-,+\}}{argmax}\sum_{h \in H}P(v|h)P(h|D) = -$\\
 
-\underline{Continuous Case}\\
-\itab{X $\sim$ $P_x$)(x)}\tab{:pdf}\\
-\itab{Y = f(X)}\tab{$\Rightarrow$ $P_Y$(y) = ?}\\
-
-Use cdf
-$P_Y$(Y$\leq$y) = $P_Y$(f(X)$\leq$y) = $P_X$(X$\leq$f$^{-1}$(y)) = $P_X$(f$^{-1}$(y))\\
-
-Provided that f is invertible\\
-Then $P_Y$(y) the pdf of Y is obtained by taking the derivative of cdf of Y\\
-
-$P_Y$(y)=$\frac{d}{dy}P_Y$(Y$\leq$y)=$\frac{d}{dy}P_X$(f$^{-1}$(y))=$\frac{d}{dx}P_X$(x)$\cdot\frac{dx}{dy}$\\
-\itab{Where x=f$^{-1}$(y)}\tab{  $\;\;\;$ignore sign of $\frac{dx}{dy}$}\\
-$\Rightarrow P_Y$(y)=$P_X$(x)[$\frac{dx}{dy}$] ; For multivariable case J = $(\frac{\sigma{y_i}}{\sigma{x_i}})_{i,j}$\\
-\itab{}\tab{$\;\;\;\;\;\;\;\;\;\;\;\;\;$[det J]}
-
-\underline{example}\\
-
-X = ($X_1$,$X_2$);\\
-Y = ($\gamma$,$\theta$) : $X_1$ = $\gamma$Cos$\theta$; $X_2$ = $\gamma$Sin$\theta$\\
-
-\[
-J =
-\left( {\begin{array}{cc}
-\frac{\sigma{x_1}}{\sigma\gamma} & \frac{\sigma{x_1}}{\sigma\theta}\\
-\frac{\sigma{x_2}}{\sigma\gamma} & \frac{\sigma{x_2}}{\sigma\theta}\\
-\end{array} } \right)
-=
-\left( {\begin{array}{cc}
-Cos\theta & -\gamma{Sin\theta}\\
-Sin\theta & \gamma{Cos\theta}\\
-\end{array} } \right);
- det(J) = \gamma{Cos^2\theta}+\gamma{Sin^2}\theta = \gamma\\
-\]
-
-$|$det(J)$|$=$|\gamma|$  $P_Y$(y)=$P_X$(x)$|$det(J)$|$=$|\gamma|P_X$(x)\\
 
 } %End of Large
 
@@ -249,15 +228,28 @@ $|$det(J)$|$=$|\gamma|$  $P_Y$(y)=$P_X$(x)$|$det(J)$|$=$|\gamma|P_X$(x)\\
 \end{Section}
 \begin{Section}{4}{The Gamma Distribution}
 \Large{
-X, f(X)
+$X\in\Re+$ Random Variable $\sim$ $G(d>0,\beta>0)$\\
+d = Shape, $\beta$ = rate\\
 
-Draw samples from X $x_1,\ldots,x_5$ (observations)\\
-Approximate f(X) by the empirical distribution\\
-of f(X) on $x_1,\ldots,x_5$\\
+$f_{Gamma}(x)=\frac{\beta^\alpha}{\Gamma(\alpha)}x^{\alpha-1}e^{-\beta{x}}$          pdf\\\\
 
-$\bar{u}$: A = $\bar{u}\gamma^2\Rightarrow\bar{u}=\frac{A}{\gamma^2}=Approximate$\\
-A=4$\gamma^2(\frac{1}{5})\sum_{i=1}^5f(x_i,y_i) f(x,y)=I(x^2+y^2\leq\gamma^2)$\\ 
+Where $\Gamma(t)=\int^\infty{u^{t-1}e^{-u}du}
+\left( {\begin{array}{c}
+\Gamma(t+1)=t\Gamma(t)\\
+\forall{t}>0\\
+\end{array} } \right)$\\
 
+\itab{X $\sim$ Gamma($\alpha$,$\beta$)}\tab{}\tab{$\Rightarrow$ E(X) = $\frac{\alpha}{\beta}$;Var(X)=$\frac{\alpha}{\beta^2}$}\\
+\itab{}\tab{}\tab{\;\;\;\;\;Mode(X)=$\frac{\alpha-1}{\beta}$}\\
+$f'(x)=\frac{\beta^\alpha}{\Gamma(\alpha)}[(\alpha-1)x^{\alpha-2}e^{-\beta{x}}x^{\alpha-1}e^{-\beta{x}}]=0$\\
+$x^{\alpha-2}e^{-\beta{x}}[\alpha-1-\beta{x}]\Rightarrow$\framebox[1.1\width]{x=$\frac{\alpha-1}{\beta}$}\\
+E(X)=$\frac{\beta^\alpha}{\Gamma(\alpha)}\int_0^\infty{x^\alpha{e^{-\beta{x}}}dx\cdots}=\frac{\alpha}{\beta}$\\\\
+\underline{The Beta Distribution}\\
+X $\sim$ Beta (x$|\alpha,\beta$) = $\frac{1}{B(\alpha,\beta)}x^{\alpha-1}(1-x)^{\beta-1}$\\
+$B(\alpha,\beta)=\frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha+\beta)}$\\
+E(X) = $\frac{\alpha}{\alpha+\beta}$\\
+M(X) = $\frac{\alpha-1}{\alpha+\beta-2}$\\
+Var(X) = $\frac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)}$\\
 } %End of Large
 
 \end{Section}

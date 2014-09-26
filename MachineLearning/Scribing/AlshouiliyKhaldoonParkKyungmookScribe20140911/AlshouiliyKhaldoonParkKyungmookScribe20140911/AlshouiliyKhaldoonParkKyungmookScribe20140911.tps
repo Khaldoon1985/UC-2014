@@ -12,13 +12,13 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
 NormalPos.right=663
-NormalPos.bottom=351
+NormalPos.bottom=352
 Class=LaTeXView
 Document=AlshouiliyKhaldoonParkKyungmookScribe20140911.tex
 
 [Frame0_View0,0]
-TopLine=105
-Cursor=2928
+TopLine=285
+Cursor=7578
 
 [Frame1]
 Flags=0
@@ -30,7 +30,7 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
 NormalPos.right=663
-NormalPos.bottom=351
+NormalPos.bottom=352
 Class=LaTeXView
 Document=..\..\header.tex
 
