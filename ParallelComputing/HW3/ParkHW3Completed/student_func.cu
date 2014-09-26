@@ -80,14 +80,48 @@
 */
 
 #include "utils.h"
+using namespace std;
+
+float *d_minWorking;
+
+// Reduce to get the min value
+__global__
+void minReduce(float* const d_values,
+				const size_t numCells)
+{
+	//
+	int x = threadIdx.x;
+	int s = 1;
+	
+	for (int numLeft = numCells; numLeft > 1; s*=2)
+	{
+		if (x % s == 0 && x + s < numCells)
+		{
+			d_values[x] = min(d_values[x], d_values[x + s]);
+		}
+		if (numLeft % 2 == 0)
+		{
+			numLeft /= 2;
+		}
+		else
+		{
+			numLeft = (numLeft + 1)/2;
+		}
+
+		// wait for all threads to finish adding
+		__syncthreads();
+	}
+
+	// result should be in d_values[0];
+}
 
 void your_histogram_and_prefixsum(const float* const d_logLuminance,
-                                  unsigned int* const d_cdf,
-                                  float &min_logLum,
-                                  float &max_logLum,
-                                  const size_t numRows,
-                                  const size_t numCols,
-                                  const size_t numBins)
+									unsigned int* const d_cdf,
+									float &min_logLum,
+									float &max_logLum,
+									const size_t numRows,
+									const size_t numCols,
+									const size_t numBins)
 {
   //TODO
   /*Here are the steps you need to implement
@@ -100,5 +134,31 @@ void your_histogram_and_prefixsum(const float* const d_logLuminance,
        the cumulative distribution of luminance values (this should go in the
        incoming d_cdf pointer which already has been allocated for you)       */
 
+	int i = 0;
+	cout << "HELP ME\n";
+	
+	// calculate the pixel coordinate for this thread
+	float value = d_logLuminance[0];
 
+	// allocate second float array of numRows * numCols
+	// do a min reduction op
+	int curCells = numRows * numCols;
+	
+	checkCudaErrors(cudaMalloc(&d_minWorking, sizeof(float) * curCells));
+
+	// create array
+	float testArray[] = {4,3,26,21,25,3,6,15,10,3,5,6,7};
+	int numCells = sizeof(testArray)/sizeof(float);
+	cout << "TestArray cells: " << numCells << endl;
+	
+	// copy array
+	checkCudaErrors(cudaMemcpy(d_minWorking, testArray,
+	sizeof(testArray), cudaMemcpyHostToDevice));
+	
+	// gridSize, blockSize
+	minReduce<<<1, numCells>>>(d_minWorking, numCells);
+	checkCudaErrors(cudaMemcpy(testArray, d_minWorking,
+	sizeof(testArray), cudaMemcpyDeviceToHost));
+	cout << "Output should be 2\n";
+	cout << "Output is " << testArray[0] << endl;
 }
