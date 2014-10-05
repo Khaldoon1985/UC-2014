@@ -43,12 +43,89 @@
  */
 
 
+__global__
+void radixSort(unsigned int* const d_inputVals,
+               unsigned int* const d_inputPos,
+               unsigned int* const d_outputVals,
+               unsigned int* const d_outputPos,
+               const size_t numElems,
+               unsigned int* const d_histogram,
+               unsigned int* const d_scan,
+               const unsigned int nBins
+               )
+{
+    const unsigned int x = threadIdx.x;
+    const unsigned int y = threadIdx.y;
+    const unsigned int tIdx = x + y*blockDim.x;
+    if (tIdx >= numElems)
+        return;
+
+    unsigned int* d_srcVals = d_inputVals;
+    unsigned int* d_srcPos = d_inputPos;
+    unsigned int* d_dstVals = d_outputVals;
+    unsigned int* d_dstPos = d_outputPos;
+
+    // iterate throught each bit
+    for (unsigned int i = 0; i < 8 * sizeof(unsigned int); i += 1u) {
+        const unsigned int mask = 1u << i;
+
+        // initialize d_histogram, and d_scan
+        if (tIdx < nBins) {
+            d_histogram[tIdx] = 0u;
+        }
+        __syncthreads();
+
+        // evaluate predicate, and compute histogram
+        const unsigned int bin = (d_srcVals[tIdx % numElems] & mask) >> i;
+        atomicAdd(&(d_histogram[bin % nBins]), 1u);
+        __syncthreads();
+
+        // compute the starting location of each bin with exclusive scan
+        // This could be simple as
+        if (tIdx == 0u) {
+            d_scan[0] = 0u;
+            d_scan[1] = d_histogram[0];
+        }
+        __syncthreads();
+
+        // Move element to correct location
+        const unsigned int offset = atomicAdd(&d_scan[bin % nBins], 1u);
+        d_dstVals[offset % numElems] = d_srcVals[tIdx % numElems];
+        d_dstPos[offset % numElems] = d_srcPos[tIdx% numElems];
+        __syncthreads();
+
+        // Swap the buffers
+        unsigned int * tmp = d_srcVals;
+        d_srcVals = d_dstVals;
+        d_dstVals = tmp;
+
+        tmp = d_srcPos;
+        d_srcPos = d_dstPos;
+        d_dstPos = tmp;
+        __syncthreads();
+    }
+}
+
 void your_sort(unsigned int* const d_inputVals,
                unsigned int* const d_inputPos,
                unsigned int* const d_outputVals,
                unsigned int* const d_outputPos,
                const size_t numElems)
-{ 
-  //TODO
-  //PUT YOUR SORT HERE
+{
+    // Step 1: Allocate memory
+    const unsigned int nBins = 2u;
+    unsigned int * d_histogram, * d_scan;
+    checkCudaErrors( cudaMalloc((void **)&d_histogram, nBins * sizeof(unsigned int)));
+    checkCudaErrors( cudaMalloc((void **)&d_scan, nBins * sizeof(unsigned int)));
+
+    // Step 2: call radix sort
+    std::cout << "Number of elements : " << numElems << std::endl;
+    const dim3 blockSize(32, 32, 1);
+    radixSort<<<1, blockSize>>>(d_inputVals, d_inputPos, d_outputVals, d_outputPos, numElems,
+                                       d_histogram, d_scan, nBins);
+    cudaDeviceSynchronize(); checkCudaErrors(cudaGetLastError());
+
+    // Step 3: release resources
+    checkCudaErrors( cudaFree(d_histogram));
+    checkCudaErrors( cudaFree(d_scan)); 
 }
