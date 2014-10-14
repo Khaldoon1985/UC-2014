@@ -1,0 +1,26 @@
+
+Homework4 Problem 1
+
+p and s are: 107,99
+t is 45
+p and s are: 1039,262
+t is 518
+p and s are: 2707,1712
+t is 1003
+
+Homework4 Problem 2
+
+190248273382547686244479775579416295505415044511 has following divisors:
+3998863619724381409 is a divisor.
+47575584334546623464185354879 is a divisor.
+
+Homework4 Problem 3
+
+
+It is given that 10000000000000000000001879 is a safe prime.
+23 is a primitive modulo.
+29 is a primitive modulo.
+37 is a primitive modulo.
+41 is a primitive modulo.
+43 is a primitive modulo.
+23 is the smallest primitive root modulo.
