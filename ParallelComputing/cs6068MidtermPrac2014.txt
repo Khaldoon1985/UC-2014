@@ -1,0 +1,63 @@
+CS6068 Fall 2014 Midterm Practice Exam 
+The midterm will be held on November 2 in class.
+1.What are three traditional ways that hardware designers make computers run faster? Please circle all that are true.-faster clocks-longer clock periods-more work per clock cycle-a larger hard disk-adding more processors 
+-reducing the amount of memory
+2.What techniques are computer designers today using to build more power-efficient chips? Please circle all that are true.-having fewer, but more complex processors,-having more, but less complex processors,-maximizing the speed of the processor clock 
+-increasing the complexity of the control hardware
+3. Circle all the true statements.-A thread block contains many threads.-An SM might run more than one thread block.-A thread block may run on more than one SM.-All the threads in a thread block might cooperate to solve a subproblem. 
+-All the threads that run on a given SM may cooperate to solve a subproblem.
+4. If we have a single kernel that is launched on many thread blocks, including block x and block y, the programmer can do which of the following: Circle all the true statements.-specify that block x will run at the same time as block y-specify that block x will run after block y.-specify that block x will run on same SM as y 
+-none of the above
+5. Circle all the statements that are true.-All threads from a block can access the same variable in that block's shared memory. 
+-Threads from two different blocks can access the same variable in global memory 
+-Threads from different blocks have their own copy of local variables in local memory. 
+-Threads from the same block have their own copy of local variables in local memory.6. What is a parallel map operation? Circle all problems that can be solved using map.
+-sort an array -add one to each element of an array -sum elements in array -move data based on array of scatter addresses7.a. Circle which operators are both binary and associative and therefore can be used in a reduction or scan. 
+-multiply -minimum -factorial -exclusive or -bitwise and -exponentiation -integer division
+
+
+7.Circle all statements that are true. When running reduction code running on an input of size n?-it takes at least n operations-its work complexity is order of n-its work complexity is order n*n-its step-complexity is order of 1, independent of the size of the input.
+8. Circle the correct answer. The number of steps in a reduction as a function of n is: 
+- square root of n- log base 2 of n- n- n times log base 2 of n9. Circle all that are true- map operations have arguments that are functions with a single argument 
+- map operations can be applied to arrays of any number of dimensions- map operations are generally very efficient on GPUs- a compact operation requires a map operation to be performed.
+10. What is the output of a max scan operation on the list of unsigned ints [5 4 7 3 1 8 2 6]? 
+Provide a solution to both inclusive and exclusive scans.
+11. Compute the max (inclusive) scan of this input sequence 2 1 4 3 showing all work when usinga) the Hillis-Steele algorithmb) the Blelloch algorithm
+12. Explain which scan algorithm (Hillis-Steele or Blelloch algorithm) is best suited and why?You are scanning a 512 element vector and a GPU that has 512 processors.
+13. Explain which scan (Hillis-Steele or Blelloch algorithm) is best suited and why? 
+You are scanning a 1 million element input vector in 512 processors machine.
+14. Suppose you are computing a histogram with less than 10 bins. Discuss an efficient GPU solution. Indicate whether or not you need to use atomics to manage access to bins of the histograms.15. True or false - In a scatter operation a syncthreads command is needed to overcome write conflicts.16. Is the compact parallel operation going to be most useful in scenarios where we delete a (small number) or a (large number) of elements?
+
+17. Is the compact parallel operation going to be most useful in scenarios where we need to run (cheap) or (expensive) function on filtered elements.18. Suppose we are running compact operations on a list of numbers with range from 1 to 1 million. Compact operation A, filters elements that are divisible by 17, and thus is only going to keep a very few of the input items. Compact operation B filters elements not divisible by 31, and thus is going to keep most of the input items. For each of the three phases of compact: predicate map, scan, and scatter phases of the compact operation, will A run faster, B run faster or will they take the same amount of time?a. Predicate map b. Scan  c. Scatter19. Show the contents of the CSR (Compressed Sparse Row) format for the following 5x5 matrix:023001005000400 
+0002020. Consider the sparse matrix dense vector product problem, and the two different parallel methods tpr(thread per row) or tpe (thread per element).a. Which approach will launch more threads?b. Which approach will require more communication between threads?c. Which approach will do more work per thread? 
+d. Which approach is more load balanced?21. What is the list ranking problem for linked lists, and write a parallel algorithm for solving it where the linked list is given as an array of pointers.22. What does it mean for a sorting algorithm to be oblivious. State the 0/1 sorting lemma for oblivious sorting algorithms.23. Provide the logic of BitonicSort – pseudocode is sufficient here. What is the step and the work complexity of BitonicSort?24. In the BitonicSort figure presented in lecture identify all the “bitonic compare” modules. 
+
+25. Prove that BitonicSort is correct using the 0/1 sorting lemma.26. What is the work and step complexity of countingSort?27. What is the expected work when hashing using chaining when the hash is to a chain of length k.
+
+28. True or false: Bloom filters are a data structure that allows fast set membership operations, but with low probability of false negatives.29. List the following in the order of their work complexity from least to most. a. parallel compact b. parallel scan c. sieveEratosthenes d. dense n-bodye. bitonicSort f. BFS g. sequential mergeSort30. List the following in the order of their step complexity from least to most. a. parallel compact b. parallel scan c. sieveEratosthenes d. dense n-bodye. bitonicSort f. BFS g. sequential mergeSort31. Write a CUDA kernel function that will effectively parallelize the following sequential function.void serial (int n, float a, float * x, float * y) {for int i = 0; i < n; ++i) {y[i]= a* x[i] + y[i]; } }
+
+32. What does the following kernel code do? Where is its race condition problem? How do you overcome it?
+__global__ void naive(int *d_bins, const int *d_in, const int BIN_COUNT)
+{
+    int myId = threadIdx.x + blockDim.x * blockIdx.x;
+    int myItem = d_in[myId];
+    int myBin = myItem % BIN_COUNT;
+    d_bins[myBin]++;
+}
+
+
+33. Complete the CUDA kernel function that computes, per-block, the sum of a block-sized portion of the input using a block-wide reduction.
+You should assume 1-dimensional thread and block indexing. 
+__global__ void block_sum(const float *input,
+                          float *per_block_results,
+                          const size_t n)
+{
+  extern __shared__ float sdata[];
+   // TODO: load input into __shared__ memory 
+   // TODO: use contiguous range pattern for reduction
+   
+
+  // thread 0 writes the final result
+  if(threadIdx.x == 0)
+  {    per_block_results[blockIdx.x] = sdata[0]; }
+}
