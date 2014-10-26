@@ -1,0 +1,24 @@
+Wireless Exam
+
+He wants one or two sentences answer.
+
+What is the role of Beacon signals?
+How can you address collisions of Beacon signals in a cellular system?
+How does CSMA/CA enable collision-free transfer of information between phones?
+What is meant by a hidden terminal problem?
+Why is it not desirable to have hard hand-off in a CDMA system?
+
+Write notes on the following
+1-hop and 2-hop neighbors
+Beacon Signals
+Stop and wait ARQ
+contention window
+
+TDMA
+CDMA
+GSM
+
+P11.10
+
+BS
+MSC
