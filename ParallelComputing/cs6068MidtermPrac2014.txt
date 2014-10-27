@@ -22,7 +22,7 @@ The midterm will be held on November 2 in class.
 - map operations can be applied to arrays of any number of dimensions- map operations are generally very efficient on GPUs- a compact operation requires a map operation to be performed.
 10. What is the output of a max scan operation on the list of unsigned ints [5 4 7 3 1 8 2 6]? 
 Provide a solution to both inclusive and exclusive scans.
-11. Compute the max (inclusive) scan of this input sequence 2 1 4 3 showing all work when usinga) the Hillis-Steele algorithmb) the Blelloch algorithm
+11. Compute the max (inclusive) scan of this input sequence 2 1 4 3 showing all work when usinga) the Hillis-Steele algorithmb) the Blelloch algorithm (has to be power of 2 to build the tree)
 12. Explain which scan algorithm (Hillis-Steele or Blelloch algorithm) is best suited and why?You are scanning a 512 element vector and a GPU that has 512 processors.
 13. Explain which scan (Hillis-Steele or Blelloch algorithm) is best suited and why? 
 You are scanning a 1 million element input vector in 512 processors machine.
@@ -30,11 +30,41 @@ You are scanning a 1 million element input vector in 512 processors machine.
 
 17. Is the compact parallel operation going to be most useful in scenarios where we need to run (cheap) or (expensive) function on filtered elements.18. Suppose we are running compact operations on a list of numbers with range from 1 to 1 million. Compact operation A, filters elements that are divisible by 17, and thus is only going to keep a very few of the input items. Compact operation B filters elements not divisible by 31, and thus is going to keep most of the input items. For each of the three phases of compact: predicate map, scan, and scatter phases of the compact operation, will A run faster, B run faster or will they take the same amount of time?a. Predicate map b. Scan  c. Scatter19. Show the contents of the CSR (Compressed Sparse Row) format for the following 5x5 matrix:023001005000400 
 0002020. Consider the sparse matrix dense vector product problem, and the two different parallel methods tpr(thread per row) or tpe (thread per element).a. Which approach will launch more threads?b. Which approach will require more communication between threads?c. Which approach will do more work per thread? 
-d. Which approach is more load balanced?21. What is the list ranking problem for linked lists, and write a parallel algorithm for solving it where the linked list is given as an array of pointers.22. What does it mean for a sorting algorithm to be oblivious. State the 0/1 sorting lemma for oblivious sorting algorithms.23. Provide the logic of BitonicSort – pseudocode is sufficient here. What is the step and the work complexity of BitonicSort?24. In the BitonicSort figure presented in lecture identify all the “bitonic compare” modules. 
+d. Which approach is more load balanced?21. What is the list ranking problem for linked lists, and write a parallel algorithm for solving it where the linked list is given as an array of pointers.22. What does it mean for a sorting algorithm to be oblivious. State the 0/1 sorting lemma for oblivious sorting algorithms.
 
-25. Prove that BitonicSort is correct using the 0/1 sorting lemma.26. What is the work and step complexity of countingSort?27. What is the expected work when hashing using chaining when the hash is to a chain of length k.
+A sorting algorithm's order of comparison doesn't matter.
+If you can sort 0/1, then you can sort all sequence of numbers.
+23. Provide the logic of BitonicSort – pseudocode is sufficient here. What is the step and the work complexity of BitonicSort?
 
-28. True or false: Bloom filters are a data structure that allows fast set membership operations, but with low probability of false negatives.29. List the following in the order of their work complexity from least to most. a. parallel compact b. parallel scan c. sieveEratosthenes d. dense n-bodye. bitonicSort f. BFS g. sequential mergeSort30. List the following in the order of their step complexity from least to most. a. parallel compact b. parallel scan c. sieveEratosthenes d. dense n-bodye. bitonicSort f. BFS g. sequential mergeSort31. Write a CUDA kernel function that will effectively parallelize the following sequential function.void serial (int n, float a, float * x, float * y) {for int i = 0; i < n; ++i) {y[i]= a* x[i] + y[i]; } }
+Remember recurrence relation
+
+Total Work Complexity: 2 * W(n/2) + O(n log n) = n log n * log n = O (n log^2 n)
+bitonic_compare work complexity: O(n/2)
+
+Total Step Complexity: S(n/2) + S_bmerge(n) = O(log^2 n)
+S_bmerge(n) = 1 + S_bmerge(n/2) = log n
+24. In the BitonicSort figure presented in lecture identify all the “bitonic compare” modules. 
+
+25. Prove that BitonicSort is correct using the 0/1 sorting lemma.
+
+Look at cases
+26. What is the work and step complexity of countingSort?
+
+Work Complexity: O(n^2) (count all) + O(n^2) (add all) = O(n^2)
+Step Complexity: O(1) (n C 2 comparison) + O(log n) (summing all by reduce) = O(log n)
+27. What is the expected work when hashing using chaining when the hash is to a chain of length k.
+
+28. True or false: Bloom filters are a data structure that allows fast set membership operations, but with low probability of false negatives.29. List the following in the order of their work complexity from least to most. a. parallel compact b. parallel scan c. sieveEratosthenes d. dense n-bodye. bitonicSort f. BFS g. sequential mergeSort
+
+b - Bleighlaw O(n)
+a - Little bit more than O(n)
+c - O(n log (log n))
+d - O(n^2)
+e - 
+f - 
+g - 
+30. List the following in the order of their step complexity from least to most. a. parallel compact b. parallel scan c. sieveEratosthenes d. dense n-bodye. bitonicSort f. BFS g. sequential mergeSort
+31. Write a CUDA kernel function that will effectively parallelize the following sequential function.void serial (int n, float a, float * x, float * y) {for int i = 0; i < n; ++i) {y[i]= a* x[i] + y[i]; } }
 
 32. What does the following kernel code do? Where is its race condition problem? How do you overcome it?
 __global__ void naive(int *d_bins, const int *d_in, const int BIN_COUNT)
