@@ -1,0 +1,19 @@
+Fri Oct 17
+
+We read the following sections in wikipedia articles:
+
+Fibonacci number
+
+1. Origins
+
+5. Matrix form
+
+11.1 Divisibility properties
+
+11.2 Primality testing
+
+Modular exponentiation
+
+4. Matrices
+
+4.1 Pseudocode
