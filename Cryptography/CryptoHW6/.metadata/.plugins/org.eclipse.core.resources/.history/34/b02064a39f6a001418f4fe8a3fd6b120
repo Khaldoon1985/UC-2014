@@ -1,0 +1,7 @@
+package cryptoHW6;
+
+public class GCD {
+	public static long gcd(long a, long b) {
+		
+	}
+}

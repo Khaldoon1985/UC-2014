@@ -1,0 +1,7 @@
+package cryptoHW6;
+
+public class EpsFunc {
+	public static long EpsFunc() {
+		
+	}
+}

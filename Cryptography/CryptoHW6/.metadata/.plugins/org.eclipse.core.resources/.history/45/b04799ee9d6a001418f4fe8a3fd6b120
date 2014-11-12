@@ -1,0 +1,8 @@
+package cryptoHW6;
+
+public class Jacobi {
+
+	public static long Jacobi (long a, long b) {
+		return 
+	}
+}

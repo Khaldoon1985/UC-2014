@@ -1,0 +1,51 @@
+package cryptoHW6;
+
+import java.math.BigInteger;
+
+public class RF {
+
+	// The recursive exponential function
+		public static long[] rf(long[] a, long b, long c) {
+		
+		if(b==0) {
+			long[] id = {1, 0, 0, 1};
+			return id;
+		}
+
+		if(b%2==1) {
+			long[] inta = new long[4];
+			long[] f = new long[4];
+			
+			inta = rf(a,b-1,c);
+			
+			f[0] = a[0] * inta[0] + a[1] * inta[2];
+			f[1] = a[0] * inta[1] + a[1] * inta[3];
+			f[2] = a[2] * inta[0] + a[3] * inta[2];
+			f[3] = a[2] * inta[1] + a[3] * inta[3];
+			
+			inta[0] = f[0]%c;
+			inta[1] = f[1]%c;
+			inta[2] = f[2]%c;
+			inta[3] = f[3]%c;
+
+			return inta;
+		}
+
+		long[] d = new long[4];
+		d = rf(a, b/2, c);
+		long[] e = new long[4];
+		
+		e[0] = d[0] * d[0] + d[1] * d[2];
+		e[1] = d[0] * d[1] + d[1] * d[3];
+		e[2] = d[2] * d[0] + d[3] * d[2];
+		e[3] = d[2] * d[1] + d[3] * d[3];
+		
+		d[0] = e[0]%c;
+		d[1] = e[1]%c;
+		d[2] = e[2]%c;
+		d[3] = e[3]%c;
+
+		return d;
+		}
+	
+}

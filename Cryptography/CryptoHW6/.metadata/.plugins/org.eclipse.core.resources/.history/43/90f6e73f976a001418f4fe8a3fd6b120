@@ -1,0 +1,38 @@
+package cryptoHW6;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		long[] a = {1,1,1,0};
+		
+		
+		long c = 7919;
+		long eps = EpsFunc.EpsFunc(c);
+		long b = c - eps;
+		
+		long[] ans = new long[4];
+		
+		ans = RF.rf(a, b, c);
+		
+		System.out.println(	"f"+ b + " mod "+ c + " is " +ans[1]+"\n");
+		
+		c = 1000000-17;
+		eps = EpsFunc.EpsFunc(c);
+		b = c - eps;
+		
+		ans = RF.rf(a, b, c);
+		
+		System.out.println(	"f"+ b + " mod "+ c + " is " +ans[1]+"\n");
+		
+		c = 1000000000-63;
+		System.out.println(c+"\n");
+		eps = EpsFunc.EpsFunc(c);
+		b = c - eps;
+		
+		ans = RF.rf(a, b, c);
+		
+		System.out.println(	"f"+ b + " mod "+ c + " is " +ans[1]+"\n");
+	}
+
+}

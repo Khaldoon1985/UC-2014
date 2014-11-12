@@ -1,0 +1,69 @@
+package cryptoHW6;
+
+import java.math.BigInteger;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		System.out.println("Problem 1 (a)\n");
+		
+		long[] a = {1,1,1,0};
+		
+		long c = 7919;
+		long eps = EpsFunc.EpsFunc(c);
+		long b = c - eps;
+		long[] ans;
+		
+		ans = RF.rf(a, b, c);
+				
+		System.out.println(	"f"+ b + " mod "+ c + " is " +ans[1]+"\n");
+		
+		c = 1000000-17;
+		eps = EpsFunc.EpsFunc(c);
+		b = c-eps;
+		ans = RF.rf(a,b,c);
+		
+		System.out.println(	"f"+ b + " mod "+ c + " is " +ans[1]+"\n");
+		
+		c = 1000000000-63;
+		eps = EpsFunc.EpsFunc(c);
+		b = c-eps;
+		ans = RF.rf(a,b,c);
+		
+		System.out.println(	"f"+ b + " mod "+ c + " is " +ans[1]+"\n");
+		
+		
+		/*
+		BigInteger[] a = {BigInteger.ONE, BigInteger.ONE, BigInteger.ONE, BigInteger.ONE, BigInteger.ZERO};
+		
+		
+		BigInteger c = BigInteger.valueOf(7919);;
+		BigInteger eps = EpsFuncBig.EpsFunc(c);
+		BigInteger b = c.subtract(eps);
+		
+		BigInteger[] ans = new BigInteger[4];
+		
+		ans = RFBig.rf(a, b, c);
+		
+		System.out.println(	"f"+ b + " mod "+ c + " is " +ans[1]+"\n");
+		
+		c = BigInteger.valueOf(1000000-17);
+		eps = EpsFuncBig.EpsFunc(c);
+		b = c.subtract(eps);
+		
+		ans = RFBig.rf(a, b, c);
+		
+		System.out.println(	"f"+ b + " mod "+ c + " is " +ans[1]+"\n");
+		
+		c = BigInteger.valueOf(1000000000-63);
+		eps = EpsFuncBig.EpsFunc(c);
+		b = c.subtract(eps);
+		
+		ans = RFBig.rf(a, b, c);
+		
+		System.out.println(	"f"+ b + " mod "+ c + " is " +ans[1]+"\n");
+		*/
+	}
+
+}

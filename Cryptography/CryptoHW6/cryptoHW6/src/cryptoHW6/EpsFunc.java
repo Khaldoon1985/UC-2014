@@ -1,0 +1,25 @@
+package cryptoHW6;
+
+public class EpsFunc {
+	public static long EpsFunc(long p) {
+		
+		long mod = p%5;
+		long eps = 616;
+		
+		if (mod == 4 || mod == 1) {
+			eps = 1;
+			return eps;
+		}
+		else if (mod == 3 || mod == 2) {
+			eps = -1;
+			return eps;
+		}
+		else if (mod == 0) {
+			eps = 0;
+			return eps;
+		}
+		System.out.println("Something went wrong in EpsFunc\n");
+		return eps;
+		
+	}
+}

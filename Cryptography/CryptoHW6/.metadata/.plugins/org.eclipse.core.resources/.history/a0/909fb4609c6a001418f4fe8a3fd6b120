@@ -1,0 +1,27 @@
+package cryptoHW6;
+
+import java.math.BigInteger;
+
+public class EpsFunc {
+	public static BigInteger EpsFunc(BigInteger p) {
+		
+		BigInteger mod = p.mod(BigInteger.valueOf(5));
+		BigInteger eps = BigInteger.valueOf(616);
+		
+		if (mod.compareTo(BigInteger.valueOf(4)) == 0 || mod.compareTo(BigInteger.valueOf(1)) == 0) {
+			eps = BigInteger.valueOf(1);
+			return eps;
+		}
+		else if (mod.compareTo(BigInteger.valueOf(3)) == 0 || mod.compareTo(BigInteger.valueOf(2)) == 0) {
+			eps = BigInteger.valueOf(-1);
+			return eps;
+		}
+		else if (mod.compareTo(BigInteger.valueOf(0)) == 0) {
+			eps = BigInteger.valueOf(0);
+			return eps;
+		}
+		System.out.println("Something went wrong in EpsFunc\n");
+		return eps;
+		
+	}
+}
